@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<title>Login</title>
+</head>
+<body>
+
+	<main th:object="${item}">
+	
+	<div class="section-title text-center">
+    	<h2>Quản Lý chức vụ</h2>
+    </div>
+    <div>[[${param.message}]]</div>
+	<div class="container-fluid">
+	<div class="mx-auto box-content-container">
+  					<div class="box-user-edition border">
+  						<form action="/role/index" class="form-login"  method="post">
+							<div class="row">
+		      					<div class="col">
+		      						<label for="email" class="pl-1">Role ID?</label>
+		        					<input type="text" class="form-control" name="id" th:field="*{id}">
+		        					<label for="email" class="pt-2 pl-1">Role Name?</label>
+		        					<input type="text" class="form-control" name="name" th:field="*{name}">
+		      					</div>
+		    				</div>
+		    				<br>
+		    				<button type="submit" class="btn btn-primary text-light mt-2 ml-2 float-right" formaction="/role/create">create</button>
+	    					<button type="submit" class="btn btn-primary text-light mt-2 ml-2 float-right" formaction="/role/delete"> Delete</button>
+	    					<button type="submit" class="btn btn-primary text-light mt-2 ml-2 float-right" formaction="/role/update">Update</button>
+		    				<button type="submit" class="btn btn-primary text-light mt-2 ml-2 float-right" formaction="/role/index">reset</button>    
+						</form>	
+	  				</div>
+	  			</div>
+			</div>
+			<div>
+  				<br>
+  				<table class="table table-condensed">
+			      <thead class="bg-success" style="font-variant: small-caps">
+			        <tr>
+			          <th>Role ID</th>
+			          <th>Role Name</th>
+			          <th></th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr th:each="role,state : ${role}" th:object="${role}">
+			          <td>[[*{id}]]</td>
+			          <td>[[*{name}]]</td>
+			          <td><a th:href="@{|/role/edit/*{id}|}"
+							class="btn btn-default"> edit
+						</a></td>
+			        </tr>
+			      </tbody>
+			    </table>
+			    
+	  				</div>
+		</main>		
+	
+</body>
+</html>

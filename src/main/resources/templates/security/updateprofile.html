@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login</title>
+</head>
+<body>
+
+	<main th:object="${item}">
+	
+	<div class="section-title text-center">
+    	<h2>Sửa Thông Tin</h2>
+	</div>
+<div class="container-fluid">
+	<div class="mx-auto box-content-container container-login">
+		<main>
+			<div class="col-sm-3"></div>
+			<div class="wrap-regis p-l-55 p-b-50 p-t-65 p-r-55 col-sm-6" >
+				<form class="form-login" method="post" action="/security/updateprofile/form" modelAttribute="item">
+					
+						<div class="row">
+	      					<div class="col">
+	        					<input type="hidden" class="form-control" name="username" th:field="*{username}">
+	        					<label for="fullname" class="pt-2">Fullname:</label>
+	        					<input type="text" class="form-control" name="fullname" th:field="*{fullname}">
+	      					</div>
+	      					<div class="col">
+	        					<input type="hidden" class="form-control"  name="password" th:field="*{password}">
+	        					<input type="hidden" class="form-control"  name="photo" th:field="*{photo}">
+	        					<label for="email" class="pt-2">Email Address:</label>
+	        					<input type="text" class="form-control"  name="email" th:field="*{email}">
+	      					</div>
+	    				</div>
+	    					<button type="submit" class="btn btn-warning bor-btn text-light mt-3 float-right" style="width:100px">Sửa</button>
+							<div>[[${param.message}]]</div>
+				</form>
+			</div>
+		</main>
+	</div>
+</div>
+	</main>
+	
+</body>
+</html>
