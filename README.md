@@ -1,4 +1,4 @@
-Hướng dẫn sử dụng: 
+Hướng dẫn sử dụng: </br>
 Downloads project từ github qua link: https://github.com/NhieuPC00810/MiniProjectR2S_nhieupc00810.git
 Mở MySQl và chạy file script từ file vừa tải về
 Mở eclipse và add project java6_Assignment_PC00810 từ file vừa tải về
