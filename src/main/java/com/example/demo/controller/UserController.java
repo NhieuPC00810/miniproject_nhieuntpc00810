@@ -84,6 +84,7 @@ public class UserController {
 			@RequestParam("email") String email, 
 			@RequestParam("roleid") String role) {
 		Accounts kiemtra = usdao.findByid(urn);
+		Roles checkrole = roledao.findByid(role);
 		if(kiemtra!=null) {
 			param.addAttribute("message","nhân viên đã tồn tại");
 			return "redirect:/user/index";
@@ -101,6 +102,9 @@ public class UserController {
 			return "redirect:/user/index";
 		}else if(role=="") {
 			param.addAttribute("message","bạn chưa nhập Role hãy thực hiên lại từ đầu");
+			return "redirect:/user/index";
+		}else if(checkrole==null) {
+			param.addAttribute("message","vui lòng nhập đúng chức vụ");
 			return "redirect:/user/index";
 		}else {
 			String author=paramService.getString("roleid", "");
