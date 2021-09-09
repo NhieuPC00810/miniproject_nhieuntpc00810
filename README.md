@@ -1,4 +1,4 @@
-Downloads project từ github qua link: https://github.com/NhieuPC00810/MiniProjectR2S_nhieupc00810.git </br>
+Downloads project từ github qua link: https://github.com/NhieuPC00810/miniproject_nhieuntpc00810.git </br>
 Mở MySQl và chạy file script từ file vừa tải về </br>
 Mở eclipse và add project java6_Assignment_PC00810 từ file vừa tải về </br>
 Vào src\main\resources\application.properties và sửa spring.datasource.username= </br>
