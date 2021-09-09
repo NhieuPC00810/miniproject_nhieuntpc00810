@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login</title>
+</head>
+<body>
+
+	<main th:object="${items}">
+	
+	<div class="section-title text-center">
+    	<h2>Đổi Mật Khẩu</h2>
+	</div>
+<div class="container-fluid">
+	<div class="mx-auto box-content-container container-login">
+		<main >
+			<div class="wrap-regis p-l-55 p-b-50 p-t-65 p-r-55 ">
+			 <div  class="poly-item-detail">
+				<form class="form-login" method="post" action="/security/chanepass/form">
+					<h2>Đổi Mật Khẩu</h2>
+					<div class="row">
+	      					<div class="col-12">
+	        					<input type="hidden" class="form-control" name="username" th:field="*{username}">
+	        					<input type="hidden" class="form-control" name="fullname" th:field="*{fullname}">
+	        					<input type="hidden" class="form-control"  name="email" th:field="*{email}">
+	        					<input type="hidden" class="form-control"  name="photo" th:field="*{photo}">
+	        					<label for="Currentpwd">Current Password</label>
+        						<input type="password" class="form-control" name="currentpassword">
+        						<label for="newpwd" class="pt-2">New Password?</label>
+        						<input type="password" class="form-control" id="email" name="password">
+        						<label for="confirm" class="pt-2">Confirm New Password?</label>
+        						<input type="password" class="form-control"  name="confirmpassword">
+	      					</div>
+	    			</div>
+	    					<button type="submit" class="btn btn-warning bor-btn text-light mt-3 float-right" style="width:100px">Đổi</button>
+							<div>[[${param.message}]]</div>
+				</form>
+				</div>
+			</div>
+		</main>
+	</div>
+</div>
+	</main>
+	
+</body>
+</html>
